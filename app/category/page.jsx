@@ -14,8 +14,12 @@ const Category = () => {
           method: 'get',
           url: `https://newsapi.org/v2/top-headlines?country=kr&category=&apiKey=${process.env.NEXT_PUBLIC_NEWS_KEY}`
         })
-          .then(function (response) {
+          .then( (response) => {
             setList(response.data.articles);
+          }).catch((resolve) => {
+            if(resolve.response.status === 426){
+              alert('로컬에서만 쓸 수 있는 무료 api임. 실서버에 쓰려면 돈 내야함.');
+            }
           });
   }
 

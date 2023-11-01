@@ -14,6 +14,10 @@ const Culture = () => {
         })
           .then(function (response) {
             setList(response.data.articles);
+          }).catch((resolve) => {
+            if(resolve.response.status === 426){
+              alert('로컬에서만 쓸 수 있는 무료 api임. 실서버에 쓰려면 돈 내야함.');
+            }
           });
   }
 
