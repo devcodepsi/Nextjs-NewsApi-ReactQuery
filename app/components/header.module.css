@@ -1,0 +1,21 @@
+.header {
+    padding-block: 20px;
+    background: #fff;
+}
+.logo {
+    text-align: center;
+    padding: 20px;
+}
+.nav {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.link {
+    font-weight: bold;
+}
+.link.active {
+    color: orange;
+}
