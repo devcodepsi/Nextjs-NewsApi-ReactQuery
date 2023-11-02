@@ -17,7 +17,11 @@ const CategoryId = () => {
             url: `https://newsapi.org/v2/top-headlines?country=kr&category=${paramId}&apiKey=${process.env.NEXT_PUBLIC_NEWS_KEY}`
           })
           .then( (response) =>  response)
-          .catch( (error) => error);
+          .catch( (error) => {
+            if(error.response.status === 426){
+              alert('로컬에서만 쓸 수 있는 무료 api임. 실서버에 쓰려면 돈 내야함.');
+            }
+          });
     }
 
     const {isLoading, isError, data} = useQuery({
@@ -27,9 +31,7 @@ const CategoryId = () => {
             let res = await getList();
             return res.data.articles;
           } catch (err) {
-            if(err.response.status === 426){
-                alert('로컬에서만 쓸 수 있는 무료 api임. 실서버에 쓰려면 돈 내야함.');
-              }
+            console.log(err);
           }
         }
       });
