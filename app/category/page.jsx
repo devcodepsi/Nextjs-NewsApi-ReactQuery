@@ -23,7 +23,7 @@ const CategoryId = () => {
             let res = await getList();
             return res.data.articles;
           } catch (err) {
-            if(res.response.status === 426){
+            if(err.response.status === 426){
                 alert('로컬에서만 쓸 수 있는 무료 api임. 실서버에 쓰려면 돈 내야함.');
               }
           }
