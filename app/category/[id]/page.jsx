@@ -1,12 +1,16 @@
 "use client"
 import { useParams } from 'next/navigation'
 import { useQuery } from 'react-query'
+import { useEffect } from'react';
 
 import axios from 'axios'
 import Link from 'next/link'
 
 
 const CategoryId = () => {
+    {/* 
+      useParams를 이용하여 id를 체킹
+    */}
     const params = useParams();
     const paramId = params.id;
 
@@ -24,18 +28,19 @@ const CategoryId = () => {
           });
     }
 
-    const {isLoading, isError, data} = useQuery({
-        queryKey: ['category'],
-        queryFn:  async () => {
-          try {
-            let res = await getList();
-            return res.data.articles;
-          } catch (err) {
-            console.log(err);
-          }
+    const queryResult = useQuery({
+      queryKey: ['category'],
+      queryFn:  async () => {
+        try {
+          let res = await getList();
+          return res.data.articles;
+        } catch (err) {
+          console.log(err);
         }
-      });
+      }
+    });
 
+    const {isLoading, isError, data} = queryResult;
 
 
   if (isLoading ) return <p>Loading...</p>;

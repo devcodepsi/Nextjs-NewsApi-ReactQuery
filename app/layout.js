@@ -15,6 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* 
+          React Query를 사용하기 위해 Provider component를 import 
+        */}
         <Provider>
         <Header />
         <main>{children}</main>

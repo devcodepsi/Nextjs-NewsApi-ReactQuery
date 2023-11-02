@@ -20,7 +20,7 @@ const CategoryId = () => {
           });
     }
 
-    const {isLoading, isError, data} = useQuery({
+      const queryResult = useQuery({
         queryKey: ['category'],
         queryFn:  async () => {
           try {
@@ -31,7 +31,8 @@ const CategoryId = () => {
           }
         }
       });
-
+  
+      const {isLoading, isError, data} = queryResult;
 
 
   if (isLoading ) return <p>Loading...</p>;
