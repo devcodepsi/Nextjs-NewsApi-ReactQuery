@@ -1,25 +1,18 @@
 "use client";
 import Link from 'next/link'
 import styles from './header.module.css'
-import React, { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
 const Header = () => {
 
   const pathname = usePathname()
- 
-  useEffect(() => {
-    const url = `${pathname}`
-    console.log(url)
-    
-  }, [pathname])
 
   const menu = [
-    {id: 1, href: '/', title: 'Home'},
-    {id: 2, href: '/category', title: 'Total'},
-    {id: 3, href: '/category/it', title: 'It'},
-    {id: 4, href: '/category/culture', title: 'Culture'},
-    {id: 5, href: '/category/social', title: 'Social'},
+    //{id: 1, href: '/', title: 'Home'},
+    {id: 2, href: '/category', title: 'All'},
+    {id: 3, href: '/category/business', title: 'Biz'},
+    {id: 4, href: '/category/entertainment', title: 'Ent'},
+    {id: 5, href: '/category/technology', title: 'Tech'},
   ]
 
   return (

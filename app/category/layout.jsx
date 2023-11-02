@@ -1,5 +1,3 @@
-import Footer from '@/app/components/footer'
-import Header from '@/app/components/header'
 import styles from './page.module.css'
 
 const LayoutSub = ({children}) => {
