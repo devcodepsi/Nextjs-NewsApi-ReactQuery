@@ -8,10 +8,10 @@ const Provider = ({ children }) => {
   const queryClient = new QueryClient()
 
   return (
-    {/* 
-      React Query를 사용하기 위해 provider 생성 
-    */}
     <QueryClientProvider client={queryClient}>
+      {/* 
+        React Query를 사용하기 위해 provider 생성 
+      */}
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
